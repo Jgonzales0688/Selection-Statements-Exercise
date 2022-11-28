@@ -1,4 +1,9 @@
 ﻿using System;
+using static System.Formats.Asn1.AsnWriter;
+using System.Linq.Expressions;
+using System.Reflection.Metadata;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SelectionStatementExercise
 {
@@ -6,15 +11,12 @@ namespace SelectionStatementExercise
     {
         static void Main(string[] args)
         {
-            //Initialize an integer to represent a favorite number and assign a value with a number of your choosing or you can assign a random number to this variable:
-            //Create an if-statement that if the guessed number is below the initial value, print out “too low”.
-            //Create an else -if statement that if the number is higher than the initial value, print out “too high”.
-            //Create an else statement that prints out some type of congratulations for guessing the correct number e.g. “You guessed it!!!”.
-
+            
+            //Exercise 1
             var r = new Random();
-            var favNum = r.Next(1, 10);
+            var favNum = r.Next(1, 100);
 
-            Console.WriteLine("Enter a number from 1-10");
+            Console.WriteLine("Enter a number from 1-100");
             var userInput = int.Parse(Console.ReadLine());
 
             if (userInput <= favNum) 
@@ -29,6 +31,36 @@ namespace SelectionStatementExercise
             {
                 Console.WriteLine("Congratulations you guessed it!");
             }
+
+
+            //Exercise 2
+            Console.WriteLine("What is your favorite school subject?");
+            var favSubj = Console.ReadLine();
+
+            switch (favSubj.ToLower()) 
+            {
+                case "reading":
+                    Console.WriteLine("Reading is a great subject.");
+                    break;
+                case "writing":
+                    Console.WriteLine("Writing is an interesting subject.");
+                    break;
+                case "english":
+                    Console.WriteLine("English is a good subject.");
+                    break;
+                case "math":
+                    Console.WriteLine("Math is a difficult subject.");
+                    break;
+                case "science":
+                    Console.WriteLine("Science is my favorite as well.");
+                    break;
+
+                default:
+                    Console.WriteLine("Thats not one many people choose, great choice.");
+                    break;
+            }
+
+          
 
         }
     }
